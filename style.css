@@ -1,0 +1,75 @@
+body {
+    background-color: rgb(214, 148, 24);
+}
+
+.style a {
+    font-size: larger;
+    font-weight: bold;
+    color: white
+}
+
+#meal-input {
+    height: 6vh;
+    border: none;
+    border-radius: 10px 0 0 10px;
+}
+
+#meal-submit {
+    width: 12vh;
+    height: 6vh;
+    border: none;
+    color: #ffffff;
+    background-color: #3b2d64;
+    border-radius: 0 10px 10px 0;
+}
+
+#meal-submit:hover {
+    color: #f8dd74;
+}
+
+#mealInfo img {
+    width: 100%;
+}
+
+#mealInfo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    place-items: center;
+}
+
+#mealInfo h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+@media(max-width:688px) {
+    #mealInfo {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+        place-items: center;
+    }
+}
+
+.card-style {
+    border-radius: 20px 20px;
+    overflow: hidden;
+}
+
+.text {
+    color: #ffffff;
+}
+
+.detail {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.style1 {
+    background-color: rgb(187, 177, 177);
+    border-radius: 10px 10px;
+    overflow: hidden;
+}
