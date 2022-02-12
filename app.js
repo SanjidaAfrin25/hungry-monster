@@ -23,8 +23,10 @@ document.getElementById('meal-submit').addEventListener('click', function() {
 
     } else {
 
-        const mealInfoSection = document.getElementById('mealInfo');
-        mealInfoSection.innerHTML = `<h2 class="text">Haven't Entered Anything</h2>`;
+        const mealInfoSection = document.getElementById('no-meal-found');
+        mealInfoSection.innerHTML = `
+        <h3>Haven't Entered Anything</h3>
+       `;
 
     }
 
@@ -34,17 +36,17 @@ document.getElementById('meal-submit').addEventListener('click', function() {
 
 
 const showMealInfo = (foods, mealInput) => {
+    console.log(foods)
+    if (foods.meals) {
+        const section = document.getElementById('mealInfo');
+
+        for (let i = 0; i < foods.meals.length; i++) {
+            const meal = foods.meals[i];
+            console.log(meal);
 
 
-    const section = document.getElementById('mealInfo');
-
-    for (let i = 0; i < foods.meals.length; i++) {
-        const meal = foods.meals[i];
-        console.log(meal);
-
-
-        const mealDiv = document.createElement('div');
-        const Info = `
+            const mealDiv = document.createElement('div');
+            const Info = `
     <div  class="card card-style">
 
     <img src="${meal.strMealThumb}" alt="">
@@ -52,15 +54,19 @@ const showMealInfo = (foods, mealInput) => {
     <button class="btn btn-primary" onClick="displayDetails('${meal.idMeal}')">Get recipes-></button>
     </div>
     `
-        mealDiv.innerHTML = Info;
-        section.appendChild(mealDiv);
+            mealDiv.innerHTML = Info;
+            section.appendChild(mealDiv);
 
 
+        }
+
+        document.getElementById('detailInfo').innerHTML = ``
+        document.getElementById('no-meal-found').innerHTML = ``
+    } else {
+
+        const mealinput = document.getElementById('meal-input').value
+        document.getElementById('no-meal-found').innerHTML = `<h2>Sorry!!No meal found for ${mealinput}</h2>`
     }
-
-    document.getElementById('detailInfo').innerHTML = ``
-
-
 
 
 }
